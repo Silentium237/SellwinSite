@@ -1,0 +1,22 @@
+
+
+.headerButton {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px 40px #0b0248 inset, 0 0 0 0 #0b0248;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: white;
+    transition: .15s ease-in-out;
+    border: none;
+
+}
+.headerButton:hover {
+    box-shadow: 0 0 10px 0 #0b0248 inset, 0 0 10px 4px #0b0248;
+    color: #0b0248;
+    transform: rotate(15deg);
+}

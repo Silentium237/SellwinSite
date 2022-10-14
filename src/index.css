@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.css-11b3ww9-MuiPaper-root-MuiAppBar-root{
+  background-color: grey !important;
+
+}
+.headerButton:before {
+color: red;
+}
+.css-ahj2mt-MuiTypography-root{
+
+}

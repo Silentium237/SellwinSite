@@ -1,0 +1,38 @@
+
+.divImg {
+    background:#fcfcfc;
+    -moz-box-shadow:0 0 60px #5d88f5;
+    -webkit-box-shadow:0 0 60px #5d88f5;
+    box-shadow:0 0 60px #5d88f5;
+    border-radius: 15px;
+    animation-name: Appearance;
+    animation-duration: 1s;
+}
+
+@-webkit-keyframes Appearance {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@-o-keyframes Appearance {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@-moz-keyframes Appearance {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes Appearance {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.text {
+    text-shadow:
+            1px 1px #ffffff;
+    color: #becfff;
+    font-family: Arial;
+    font-style: italic;
+}
