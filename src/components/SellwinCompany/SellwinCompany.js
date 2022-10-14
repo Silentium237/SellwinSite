@@ -1,5 +1,9 @@
 import React from "react";
 import Paper from "@mui/material/Paper";
+import kosmo from "./kosmo.png"
+import oilMotor from "./oilMotor.png"
+import SellwinGroup from "./SellwinGroup.png"
+import sellwinPro from "./sellwinPro.png"
 
 export default function SellwinCompany  ()  {
     return (
@@ -7,7 +11,7 @@ export default function SellwinCompany  ()  {
 
             <Paper style={{padding: 5}}  elevation={3} >
                 <span style={{width: 500, padding: 20}}>
-                    <img src="http://sellwin-system.by/upload/iblock/f98/f9821004d1c1617cbeb85983ca15163d.png"
+                    <img src={kosmo}
                          style={{
                              width: 300,
                              height: 100}}/>
@@ -16,7 +20,7 @@ export default function SellwinCompany  ()  {
 
             <Paper style={{padding: 5}}  elevation={3} >
                 <span style={{width: 500, padding: 20}}>
-                  <img src="http://sellwin-system.by/upload/iblock/bfb/bfb2a131e3c65a66938a8c6acfbbbe24.png"
+                  <img src={oilMotor}
                        style={{
                            width: 300,
                            height: 100}}/>
@@ -25,7 +29,7 @@ export default function SellwinCompany  ()  {
 
             <Paper style={{padding: 5}}  elevation={3} >
                 <span style={{width: 500, padding: 20}}>
-                  <img src="http://sellwin-system.by/upload/iblock/2b2/2b2f8dae2f0ee20b245f0283e7c18684.png"
+                  <img src={SellwinGroup}
                        style={{
                            width: 300,
                            height: 100}}/>
@@ -34,7 +38,7 @@ export default function SellwinCompany  ()  {
 
             <Paper style={{padding: 5}}  elevation={3} >
                 <span style={{width: 500, padding: 20}}>
-                  <img src="http://sellwin-system.by/upload/iblock/0cb/0cb66cf8046769c549b6dc6994c1418c.png"
+                  <img src={sellwinPro}
                        style={{
                            width: 300,
                            height: 100}}/>

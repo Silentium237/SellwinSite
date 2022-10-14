@@ -10,7 +10,10 @@ import Paper from "@mui/material/Paper";
 import BasicTabs from "./components/ListAbout/ListAbout";
 import Footer from "./components/Footer/Footer";
 import SellwinCompany from "./components/SellwinCompany/SellwinCompany";
-
+import comandos from "./comandos.jpg"
+import complecs from "./complecs.jpg"
+import complecs2 from "./complecs2.jpg"
+import loyalty from "./loyalty.jpg"
 
 function App() {
     const [showCard1, setShowCard1] = React.useState(true)
@@ -47,23 +50,27 @@ function App() {
                         <Paper style={{padding: 5}}  elevation={3} >
                             {showCard1 ?
                                 <div onMouseEnter={()=>show1()} style={{position:"inherit",
-                                    backgroundImage: `url("http://sellwin-system.by/r/home01sunriseOptimized.jpg")`,
+                                    backgroundImage: `url(${comandos})`,
                                     width: 300, height: 400}}>
                                     <div style={{
+                                        color: "black",
+                                        fontFamily: "sans-serif",
                                         textAlign: "center",
-                                        fontSize: 14,
+                                        fontSize: 24,
                                         fontWeight: "bold",
                                         paddingTop: 90}}>
-                                        ПРОФЕССИОНАЛЬНАЯ КОМАНДА
+                                        ПРОФЕССИОНАЛЬНАЯ <br/> КОМАНДА
                                     </div>
                                 </div> :
                                     <div onMouseLeave={()=>show11()}  style={{position:"inherit",
-                                        width: 300, height: 400}}>
+                                        width: 300, height: 400,  backgroundColor: "#90eaff"}}>
                                         <div  style={{
                                             textAlign: "center",
                                             fontSize: 14,
                                             fontWeight: "bold",
-                                            paddingTop: 90}}>
+                                            paddingTop: 90,
+
+                                        }}>
                                             Более 20 высококлассных специалистов, вовлеченных
                                             в бизнес интегрирование каждого проекта и направленных
                                             на достижение общей цели
@@ -78,19 +85,20 @@ function App() {
                     {showCard2 ?
                         <div onMouseEnter={()=>show2()}
                              style={{position:"inherit",
-                                 backgroundImage: `url("http://sellwin-system.by/r/home02financialOptimized.jpg")`,
+                                 backgroundImage: `url(${complecs2})`,
                                  width: 300,
                                  height: 400}}>
-                            <div style={{textAlign: "center", fontSize: 14, fontWeight: "bold",paddingTop: 90}}>
-                                КОМПЛЕКСНЫЙ ПОДХОД
+                            <div style={{color: "white",textAlign: "center", fontSize: 24, fontWeight: "bold",paddingTop: 90}}>
+                                КОМПЛЕКСНЫЙ <br/>ПОДХОД
                             </div>
                         </div> :
                         <div onMouseLeave={()=>show22()}
                              style={{position:"inherit",
                             width: 300,
-                            height: 400}}>
+                            height: 400,
+                             backgroundColor: "#40dbff"}}>
                             <div style={{
-                                fontSize: 14,
+                                fontSize: 16,
                                 fontWeight: "bold",
                                 paddingTop: 90}}>
                                <ul>
@@ -116,22 +124,28 @@ function App() {
             <div style={{position:"inherit"}}>
                 <Paper style={{padding: 5}}  elevation={3} >
                     {showCard3 ? <div onMouseEnter={()=>show3()} style={{position:"inherit",
-                        backgroundImage: `url("http://sellwin-system.by/r/home03cardleyOptimized.jpg")`,
+                        backgroundImage: `url(${loyalty})`,
                         width: 300,
-                        height: 400}}>
+                        height: 400,
+                    backgroundColor: "#00cfff"}}>
                         <div style={{textAlign: "center",
-                            fontSize: 14,
+                            color: "white",
+                            fontSize: 24,
                             fontWeight: "bold",
-                            paddingTop: 90}}>
-                            ПРОГРАММА ЛОЯЛЬНОСТИ
+                            paddingTop: 90,
+                            fontFamily: "sans-serif"
+                        }}>
+                            ПРОГРАММА <br/> ЛОЯЛЬНОСТИ
                         </div>
                     </div> : <div style={{position:"inherit",
                         width: 300,
-                        height: 400}}>
+                        height: 400,
+                        backgroundColor: "#00cfff"}}>
                         <div onMouseLeave={()=>show33()} style={{
                             fontSize: 14,
                             fontWeight: "bold",
-                            paddingTop: 90}}>
+                            paddingTop: 90,
+                            backgroundColor: "#00cfff"}}>
                             <ul>
                                 <li>
                                     В нашей компании действует гибкая система лояльности для наших постоянных клиентов
