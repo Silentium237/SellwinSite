@@ -1,24 +1,70 @@
 import React from "react"
 import {Suspense} from "react";
-import './App.css';
+// import './App.css';
 import DrawerAppBar from "./components/Header/Header";
 // import { RenderTexture, OrbitControls, ContactShadows } from '@react-three/drei'
-import { Canvas, useFrame, createPortal } from '@react-three/fiber'
-import Earth from "./components/Earth/Earth";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import BasicTabs from "./components/ListAbout/ListAbout";
+// import { Canvas, useFrame, createPortal } from '@react-three/fiber'
+// import Earth from "./components/Earth/Earth";
+// import Box from "@mui/material/Box";
+// import Paper from "@mui/material/Paper";
+// import BasicTabs from "./components/ListAbout/ListAbout";
 import Footer from "./components/Footer/Footer";
 import SellwinCompany from "./components/SellwinCompany/SellwinCompany";
-import comandos from "./comandos.jpg"
-import complecs from "./complecs.jpg"
-import complecs2 from "./complecs2.jpg"
-import loyalty from "./loyalty.jpg"
+// import comandos from "./comandos.jpg"
+// import complecs from "./complecs.jpg"
+// import complecs2 from "./complecs2.jpg"
+// import loyalty from "./loyalty.jpg"
+// import logo from './logo.svg'
+// import logo2 from './icons8-angularjs.svg'
+// import logo3 from './icons8-vue-js.svg'
+// import logo4 from './icons8-android.svg'
+// import logo5 from './icons8-php.svg'
+// import logo6 from './icons8-python.svg'
+// import logo7 from './icons8-ос-mac.svg'
+// import logo8 from './icons8-node-js.svg'
+// import Slider from "./components/Slider/Slider";
+// import data from "./components/Slider/data"
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import engineer from "./Engineer.svg"
+import consult from "./consult.svg"
+import design from "./design.svg"
+import operate from "./operate.svg"
+import optimize from "./optimize.svg"
+import StyleSlider from "./components/Slider/styles.css"
+
+import s from './App.css'
+import DemoCarousel from "./components/AboutAs/AboutUs";
+import {Grid} from "@mui/material";
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import ourWork from './OurWork1.png'
+import ourWork2 from './OurWork1_1.png'
+import ourWork3 from './OurWork1_2.png'
+import ContactUs from "./components/ContactUS/ContactUs";
+import OurResults from "./components/OurResults/OurResults";
+import CardShow from "./components/CardShow/CardShow";
+import CardShowMobile from "./components/CardShowMobile/CardShowMobile";
+import AboutUs from "./components/AboutAs/AboutUs";
+import OurProject from "./components/OurProject/OurProject";
+
+
 
 function App() {
     const [showCard1, setShowCard1] = React.useState(true)
     const [showCard2, setShowCard2] = React.useState(true)
     const [showCard3, setShowCard3] = React.useState(true)
+    const [isHover1, setIsHover1] = React.useState(false);
+    const [isHover2, setIsHover2] = React.useState(false);
+    const [isHover3, setIsHover3] = React.useState(false);
+    const [isHover4, setIsHover4] = React.useState(false);
+    const [isHover5, setIsHover5] = React.useState(false);
+
 
     const show1 = () => {
         setShowCard1(false)
@@ -39,150 +85,84 @@ function App() {
         setShowCard3(true)
     }
 
+
+    const handleMouseEnter1 = () => {
+        setIsHover1(true);
+    };
+    const handleMouseLeave1 = () => {
+        setIsHover1(false);
+    };
+    const handleMouseEnter2 = () => {
+        setIsHover2(true);
+    };
+    const handleMouseLeave2 = () => {
+        setIsHover2(false);
+    };
+    const handleMouseEnter3 = () => {
+        setIsHover3(true);
+    };
+    const handleMouseLeave3 = () => {
+        setIsHover3(false);
+    };
+    const handleMouseEnter4 = () => {
+        setIsHover4(true);
+    };
+    const handleMouseLeave4 = () => {
+        setIsHover4(false);
+    };
+    const handleMouseEnter5 = () => {
+        setIsHover5(true);
+    };
+    const handleMouseLeave5 = () => {
+        setIsHover5(false);
+    };
+
+
+
+
+    let Width = window.innerWidth
+
   return (
-    <div >
+    <div style={{background: '#1f2e4b',fontFamily: "Andale Mono, monospace"}} >
+
+
     <DrawerAppBar/>
 
-      <div style={{textAlign: "center", fontSize: 24, fontWeight: "bold", padding: 10 }}>ABOUT</div>
-      <Box>
-        <div style={{display: "flex", justifyContent: "space-around"}}>
-                    <div style={{position:"inherit"}}>
-                        <Paper style={{padding: 5}}  elevation={3} >
-                            {showCard1 ?
-                                <div onMouseEnter={()=>show1()} style={{position:"inherit",
-                                    backgroundImage: `url(${comandos})`,
-                                    width: 300, height: 400}}>
-                                    <div style={{
-                                        color: "black",
-                                        fontFamily: "sans-serif",
-                                        textAlign: "center",
-                                        fontSize: 24,
-                                        fontWeight: "bold",
-                                        paddingTop: 90}}>
-                                        ПРОФЕССИОНАЛЬНАЯ <br/> КОМАНДА
-                                    </div>
-                                </div> :
-                                    <div onMouseLeave={()=>show11()}  style={{position:"inherit",
-                                        width: 300, height: 400,  backgroundColor: "#90eaff"}}>
-                                        <div  style={{
-                                            textAlign: "center",
-                                            fontSize: 14,
-                                            fontWeight: "bold",
-                                            paddingTop: 90,
 
-                                        }}>
-                                            Более 20 высококлассных специалистов, вовлеченных
-                                            в бизнес интегрирование каждого проекта и направленных
-                                            на достижение общей цели
-                                        </div>
-                                    </div>
-                            }
+            <AboutUs  />
 
-                        </Paper>
-                    </div>
-            <div style={{position:"inherit"}}>
-                <Paper style={{padding: 5}}  elevation={3} >
-                    {showCard2 ?
-                        <div onMouseEnter={()=>show2()}
-                             style={{position:"inherit",
-                                 backgroundImage: `url(${complecs2})`,
-                                 width: 300,
-                                 height: 400}}>
-                            <div style={{color: "white",textAlign: "center", fontSize: 24, fontWeight: "bold",paddingTop: 90}}>
-                                КОМПЛЕКСНЫЙ <br/>ПОДХОД
-                            </div>
-                        </div> :
-                        <div onMouseLeave={()=>show22()}
-                             style={{position:"inherit",
-                            width: 300,
-                            height: 400,
-                             backgroundColor: "#40dbff"}}>
-                            <div style={{
-                                fontSize: 16,
-                                fontWeight: "bold",
-                                paddingTop: 90}}>
-                               <ul>
-                                   <li>
-                                       Точное понимание потребности клиента
-                                   </li>
-                                   <li>
-                                        Механизм быстрого апробирования решений в бизнес-процессах своих клиентов с последующей доработкой
-                                   </li>
-                                   <li>
-                                        Наличие собственного центра сопровождения программно-аппаратных комплексов своих клиентов
-                                   </li>
-
-                               </ul>
-                            </div>
-                        </div>
-                    }
+        {Width > 1024 ?   <CardShow handleMouseEnter1={handleMouseEnter1}
+                                    handleMouseEnter2={handleMouseEnter2}
+                                    handleMouseLeave2={handleMouseLeave2}
+                                    handleMouseLeave1={handleMouseLeave1}
+                                    isHover1={isHover1}
+                                    isHover2={isHover2} /> :    <CardShowMobile/>}
 
 
 
-                </Paper>
-            </div>
-            <div style={{position:"inherit"}}>
-                <Paper style={{padding: 5}}  elevation={3} >
-                    {showCard3 ? <div onMouseEnter={()=>show3()} style={{position:"inherit",
-                        backgroundImage: `url(${loyalty})`,
-                        width: 300,
-                        height: 400,
-                    backgroundColor: "#00cfff"}}>
-                        <div style={{textAlign: "center",
-                            color: "white",
-                            fontSize: 24,
-                            fontWeight: "bold",
-                            paddingTop: 90,
-                            fontFamily: "sans-serif"
-                        }}>
-                            ПРОГРАММА <br/> ЛОЯЛЬНОСТИ
-                        </div>
-                    </div> : <div style={{position:"inherit",
-                        width: 300,
-                        height: 400,
-                        backgroundColor: "#00cfff"}}>
-                        <div onMouseLeave={()=>show33()} style={{
-                            fontSize: 14,
-                            fontWeight: "bold",
-                            paddingTop: 90,
-                            backgroundColor: "#00cfff"}}>
-                            <ul>
-                                <li>
-                                    В нашей компании действует гибкая система лояльности для наших постоянных клиентов
-                                </li>
-                                <li>
-                                    VIP обслуживание
-                                </li>
-                                <li>
-                                    Многоуровневое поощрение клиентов
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>}
-
-                </Paper>
-            </div>
-        </div>
-      </Box>
-        <div style={{textAlign: "center", fontSize: 24, fontWeight: "bold", padding: 10 , paddingTop: 15}}>DELIVERY TEAMS</div>
-        <hr/>
-        <div style={{display: "flex", justifyContent: "space-around", height: 150}}>
-            <img src="https://softgreat.com/wp-content/uploads/2018/07/android-line-1.png"/>
-            <img src="https://softgreat.com/wp-content/uploads/2018/07/php-line-1.jpg"/>
-            <img src="https://softgreat.com/wp-content/uploads/2018/07/ios-line-1.png"/>
-            <img src="https://softgreat.com/wp-content/uploads/2018/07/python-line-320x202.png"/>
-            <img src="https://softgreat.com/wp-content/uploads/2018/07/react-line-1.png"/>
-            <img src="https://softgreat.com/wp-content/uploads/2018/07/ai-line-1.png"/>
-        </div>
 
 
-        <hr/>
 
-        <div style={{textAlign: "center", fontSize: 24, fontWeight: "bold", padding: 10 }}>About</div>
-        <BasicTabs/>
+
+
+
+        <ContactUs/>
+
+
+        <OurResults/>
+        <OurProject/>
+
+
+
+
+        <hr style={{marginTop: 20, opacity: 0.5}}/>
+
+        <div style={{textAlign: "center", fontSize: 24, fontWeight: "bold", padding: 10 , paddingTop: 15, color: "white"}}>DELIVERY TEAMS</div>
+
         <SellwinCompany/>
-        <div style={{paddingTop: 100}}>
+
+
+        <div style={{paddingTop: 50}}>
             <Footer/>
         </div>
 

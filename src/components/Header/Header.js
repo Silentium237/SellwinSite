@@ -21,103 +21,206 @@ import Earth from "../Earth/Earth";
 import Paper from '@mui/material/Paper';
 import FakeSphere from "./FakeSphere";
 import Lite from "./Lite";
-
-const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact'];
-
+import ai from "../../ai.png";
+import earthLogo from "./earthLang.png"
 
 
+function DrawerAppBar() {
 
-function DrawerAppBar(props) {
-    const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-
+    const [show, setShow] = React.useState(false)
+    const [isHover, setIsHover] = React.useState(false);
+    const [isHoverHome, setIsHoverHome] = React.useState(false);
+    const [isHoverAbout, setIsHoverAbout] = React.useState(false);
+    const [isHoverContact, setIsHoverContact] = React.useState(false);
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
+    const handleMouseEnter = (name) => {
+        if (name === 'Home') {
+            setIsHoverHome(true);
+        }
+        if (name === 'About') {
+            setIsHoverAbout(true);
+        }
+        if (name === 'Contact') {
+            setIsHoverContact(true);
+        }
+        // setIsHover(true);
+    };
+    const handleMouseLeave = (name) => {
+        if (name === 'Home') {
+            setIsHoverHome(false);
+        }
+        if (name === 'About') {
+            setIsHoverAbout(false);
+        }
+        if (name === 'Contact') {
+            setIsHoverContact(false);
+        }
+        setIsHover(false);
+    };
+    const handleMouseEnterHome = () => {
+        setIsHoverHome(true);
+    };
+    const handleMouseLeaveHome = () => {
+        setIsHoverHome(false);
+    };
+    const handleMouseEnterAbout = () => {
+        setIsHover(true);
+    };
+    const handleMouseLeaveAbout = () => {
+        setIsHover(false);
+    };
+    const handleMouseEnterContact = () => {
+        setIsHover(true);
+    };
+    const handleMouseLeaveContact = () => {
+        setIsHover(false);
+    };
 
-    const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ my: 2 }}>
-                MUI
-            </Typography>
-            <Divider />
-            <List>
-                {navItems.map((item) => (
-                    <ListItem key={item} disablePadding>
-                        <ListItemButton sx={{ textAlign: 'center' }}>
-                            <ListItemText primary={item} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
-        </Box>
-    );
 
-    const container = window !== undefined ? () => window().document.body : undefined;
+    const navItems = [
+        {
+            name: 'Home',
+            link: "/home",
+            handleMouseEnter,
+            handleMouseLeave,
+            hover: isHoverHome
+        },
+        {
+            name: 'About',
+            link: "/about",
+            handleMouseEnter,
+            handleMouseLeave,
+            hover: isHoverAbout
+        },
+        {
+            name: 'Contact',
+            link: "/contact",
+            handleMouseEnter,
+            handleMouseLeave,
+            hover: isHoverContact
+        }
+    ];
+
+    const [lang, setLang] = React.useState(true)
+    const [showLang, setShowLang] = React.useState(false)
+
+    const changeLanguage = () => {
+        setLang(!lang)
+        setShowLang(!showLang)
+    }
+
+    let Width = window.innerWidth
 
     return (
-        <Box sx={{ display: 'flex' }}>
 
-            <Box component="main" sx={{ p: 3 }} style={{background: "linear-gradient(to bottom right, blue, black)",
-                width: "100%",
-                paddingBottom: 155
-               }}>
+
+            <Box component="main"  style={{
+                background: "linear-gradient(to bottom , gray, #1f2e4b)",
+
+
+            }}>
                 <div style={{width: "100%"}}>
-                     <span>
+                     <span style={{padding: 10}}>
                          <img width="150px" src={sellwinLogo}/>
                     </span>
-                    <span style={{ float: "right"}}>
-                     {navItems.map((item) => (
+                    <img src={ai} style={{position: "absolute", zIndex: 0, left: -500, top: 500, width: Width-Width/2}}/>
+                    <div style={{float: "right", display: Width > 600 ?  "flex" : "inline-grid" , fontSize: Width > 600 ?  24 : 12}}>
+                        {navItems.map((item) => (
+                            <div
+                                // style={{color: '#fff',
+                                // display: "flex",
+                                // margin: "auto",
+                                // padding: 20,
+                                // textDecoration: "underline"}}
+                                style={{
+                                    position: "relative",
+                                    overflow: "hidden",
+                                    display: "inline-block",
+                                    color: '#fff',
+                                    background: "linear-gradient(to right, royalblue, royalblue 50%, #fff 50%)",
+                                    backgroundClip: "text",
+                                    webkitBackgroundClip: "text",
+                                    webkitTextFillColor: "transparent",
+                                    backgroundSize: "200% 100%",
+                                    backgroundPosition: !item.hover ? "100%" : "0 100%",
+                                    transition: "background-position 275ms ease",
+                                    margin: "auto",
+                                    padding: Width > 600 ? 20 : 10,
+                                    fontWeight: "bold"
 
-                         <button className={s.headerButton} style={{ marginLeft: 10}}  key={item} sx={{ color: '#fff' }}>
-                             {item}
-                         </button>
+                                }}
+                                onMouseEnter={() => item.handleMouseEnter(item.name)}
+                                onMouseLeave={() => item.handleMouseLeave(item.name)}
+                                onClick={() => {
+                                    setShow(!show)
+                                }}> {item.name}</div>
 
+                        ))}
 
-                     ))}
-                </span>
+                        <div style={{  position: "relative",
+                            overflow: "hidden",
+                            display: "inline-block",  margin: "auto",
+                            color: "white", textAlign: "center"}}>
+
+                            <div onClick={() => changeLanguage()}>
+                                <img width="50" src={earthLogo}/>
+                                {/*<span>*/}
+                                {/*     {lang ? <>ru</> : <>en</>}*/}
+                                {/*</span>*/}
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
 
 
-
-
-                <Box style={{zIndex: 1}} sx={{ display: { xs: 'none', sm: 'block' } }}>
+                <Box style={{zIndex: 1}} sx={{display: {xs: 'none', sm: 'block'}}}>
 
                 </Box>
-                <Toolbar />
-                <h1 style={{color: "white"}}>
-                    Let's build from here, together
+                <Toolbar/>
+                <h1 style={{
+                    fontSize: "calc( (100vw - 480px)/(1280 - 480) * (50 - 24) + 24px)", color: "white",margin: 10
+                }}>
+                    {lang ? <>
+                        Начнем создавать будущее, вместе
+                    </> : <>
+                        Let's start creating the future together
+                    </>}
+
 
                 </h1>
-                <h style={{color: "white"}}>
-                    The complete developer platform to build, scale, and deliver secure software.
-                </h>
+                <hr/>
 
-                <div style={{float: "right", }}>
+
+                {lang ? <h1 style={{color: "white",  fontSize: "calc( (100vw - 480px)/(1280 - 480) * (35 - 18) + 18px)", margin: 10}}>
+                    Полный цикл создания, масштабирования и поставки защищенного программного обеспечения для заказчика.
+                </h1> : <h1 style={{color: "white",  fontSize: "calc( (100vw - 480px)/(1280 - 480) * (35 - 18) + 18px)", margin: 10}}>
+                    Full cycle of creation, scaling and delivery of secure software for the customer.
+                </h1>}
+
+
+                <hr/>
+
+
+                <div style={{float: "right",}}>
+
                     <Canvas
                         style={{
-                            width: "750px",
-                            height: "750px",
-                            marginRight: 350,
-                            marginTop: -350
-                        }}
-                    >
-
-                        <Lite/>
-                        {/*<FakeSphere/>*/}
-                    </Canvas>
-                    <Canvas
-                        style={{
-                            width: "600px",
-                            height: "600px",
-                            marginRight: 490,
-                            marginTop: -600
-
+                            width: "calc( (100vw - 480px)/(1280 - 480) * (700 - 350) + 350px)",
+                            height: "calc( (100vw - 480px)/(1280 - 480) * (350 - 200) + 200px)",
+                            // left: -80,
+                            marginTop: "calc( (100vw - 480px)/(1280 - 480) * (100 - 50) + 50px)",
+                            borderRadius: 20,
+                            border: "1px solid white",
+                            marginRight: 10
                         }}
                     >
                         <Suspense fallback={null}>
-                            <Earth/>
+                            <Earth show={show}/>
 
                         </Suspense>
 
@@ -127,19 +230,9 @@ function DrawerAppBar(props) {
                 </div>
 
 
-
             </Box>
 
-            <div style={{width: "100%",
-                height: 100,
-                border: "2px solid white",
-                borderRadius: "40% 40% 0 0 / 100% 100% 0 0",
-                background: "white",
-                marginTop: 700,
-                position: "absolute"
-            }}></div>
 
-        </Box>
     );
 }
 

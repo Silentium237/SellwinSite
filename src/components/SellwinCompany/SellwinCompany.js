@@ -6,44 +6,45 @@ import SellwinGroup from "./SellwinGroup.png"
 import sellwinPro from "./sellwinPro.png"
 
 export default function SellwinCompany  ()  {
+    let Width =window.innerWidth
     return (
-        <div style={{display: "flex", justifyContent: "space-around", paddingTop: 40}}>
+        <div style={{display: "flex", justifyContent: "space-around", alignItems: "center", }}>
 
-            <Paper style={{padding: 5}}  elevation={3} >
-                <span style={{width: 500, padding: 20}}>
+
+                <span style={{ padding: 20}}>
                     <img src={kosmo}
                          style={{
-                             width: 300,
-                             height: 100}}/>
+                             width: "100%",
+                             }}/>
                 </span>
-            </Paper>
 
-            <Paper style={{padding: 5}}  elevation={3} >
-                <span style={{width: 500, padding: 20}}>
+
+
+                <span style={{ padding: 20}}>
                   <img src={oilMotor}
                        style={{
-                           width: 300,
-                           height: 100}}/>
+                           width: "100%",
+                          }}/>
                 </span>
-            </Paper>
 
-            <Paper style={{padding: 5}}  elevation={3} >
-                <span style={{width: 500, padding: 20}}>
+
+
+                <span style={{ padding: 20}}>
                   <img src={SellwinGroup}
                        style={{
-                           width: 300,
-                           height: 100}}/>
+                           width: "100%",
+                          }}/>
                 </span>
-            </Paper>
 
-            <Paper style={{padding: 5}}  elevation={3} >
-                <span style={{width: 500, padding: 20}}>
+
+
+                <span style={{ padding: 20}}>
                   <img src={sellwinPro}
                        style={{
-                           width: 300,
-                           height: 100}}/>
+                           width: "100%",
+                           }}/>
                 </span>
-            </Paper>
+
         </div>
     )
 }
