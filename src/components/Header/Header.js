@@ -14,8 +14,9 @@ import ai from "../../ai.png";
 import earthLogo from "./earthLang.png"
 
 
-function DrawerAppBar() {
-
+function DrawerAppBar(props) {
+    let lang = props.lang
+    let changeLanguage = props.changeLanguage
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [show, setShow] = React.useState(false)
     const [isHover, setIsHover] = React.useState(false);
@@ -26,25 +27,25 @@ function DrawerAppBar() {
         setMobileOpen(!mobileOpen);
     };
     const handleMouseEnter = (name) => {
-        if (name === 'Home') {
+        if (name === 'Home' || name === 'Главная' ) {
             setIsHoverHome(true);
         }
-        if (name === 'About') {
+        if (name === 'About Us' || name === 'О нас' ) {
             setIsHoverAbout(true);
         }
-        if (name === 'Contact') {
+        if (name === 'Contact' || name === "Контакты") {
             setIsHoverContact(true);
         }
         // setIsHover(true);
     };
     const handleMouseLeave = (name) => {
-        if (name === 'Home') {
+        if (name === 'Home' || name === 'Главная') {
             setIsHoverHome(false);
         }
-        if (name === 'About') {
+        if (name === 'About Us' || name === 'О нас' ) {
             setIsHoverAbout(false);
         }
-        if (name === 'Contact') {
+        if (name === 'Contact' || name === "Контакты") {
             setIsHoverContact(false);
         }
         setIsHover(false);
@@ -71,21 +72,24 @@ function DrawerAppBar() {
 
     const navItems = [
         {
-            name: 'Home',
+            name: 'Главная',
+            nameEng: 'Home',
             link: "/home",
             handleMouseEnter,
             handleMouseLeave,
             hover: isHoverHome
         },
         {
-            name: 'About',
+            name: 'О нас',
+            nameEng: 'About Us',
             link: "/about",
             handleMouseEnter,
             handleMouseLeave,
             hover: isHoverAbout
         },
         {
-            name: 'Contact',
+            name: 'Контакты',
+            nameEng: 'Contact',
             link: "/contact",
             handleMouseEnter,
             handleMouseLeave,
@@ -93,13 +97,7 @@ function DrawerAppBar() {
         }
     ];
 
-    const [lang, setLang] = React.useState(true)
-    const [showLang, setShowLang] = React.useState(false)
 
-    const changeLanguage = () => {
-        setLang(!lang)
-        setShowLang(!showLang)
-    }
 
     let Width = window.innerWidth
 
@@ -117,13 +115,8 @@ function DrawerAppBar() {
                     </span>
                     <img src={ai} style={{position: "absolute", zIndex: 0, left: -500, top: 500, width: Width-Width/2}}/>
                     <div style={{float: "right", display: Width > 600 ?  "flex" : "inline-grid" , fontSize: Width > 600 ?  24 : 12}}>
-                        {navItems.map((item) => (
-                            <div
-                                // style={{color: '#fff',
-                                // display: "flex",
-                                // margin: "auto",
-                                // padding: 20,
-                                // textDecoration: "underline"}}
+                        {navItems.map((item, index) => (
+                            <div key={index}
                                 style={{
                                     position: "relative",
                                     overflow: "hidden",
@@ -145,7 +138,7 @@ function DrawerAppBar() {
                                 onMouseLeave={() => item.handleMouseLeave(item.name)}
                                 onClick={() => {
                                     setShow(!show)
-                                }}> {item.name}</div>
+                                }}> {lang ? item.name : item.nameEng}</div>
 
                         ))}
 
@@ -154,7 +147,7 @@ function DrawerAppBar() {
                             display: "inline-block",  margin: "auto",
                             color: "white", textAlign: "center"}}>
 
-                            <div onClick={() => changeLanguage()}>
+                            <div onClick={() => changeLanguage(lang)}>
                                 <img width="50" src={earthLogo}/>
                                 {/*<span>*/}
                                 {/*     {lang ? <>ru</> : <>en</>}*/}
@@ -172,7 +165,7 @@ function DrawerAppBar() {
                 </Box>
                 <Toolbar/>
                 <h1 style={{
-                    fontSize: "calc( (100vw - 480px)/(1280 - 480) * (50 - 24) + 24px)", color: "white",margin: 10
+                    fontSize: "calc( (100vw - 480px)/(1280 - 480) * (60 - 24) + 24px)", color: "white",margin: 10
                 }}>
                     {lang ? <>
                         Начнем создавать будущее, вместе
@@ -185,9 +178,9 @@ function DrawerAppBar() {
                 <hr/>
 
 
-                {lang ? <h1 style={{color: "white",  fontSize: "calc( (100vw - 480px)/(1280 - 480) * (35 - 18) + 18px)", margin: 10}}>
+                {lang ? <h1 style={{color: "white",  fontSize: "calc( (100vw - 480px)/(1280 - 480) * (32 - 16) + 16px)", margin: 10}}>
                     Полный цикл создания, масштабирования и поставки защищенного программного обеспечения для заказчика.
-                </h1> : <h1 style={{color: "white",  fontSize: "calc( (100vw - 480px)/(1280 - 480) * (35 - 18) + 18px)", margin: 10}}>
+                </h1> : <h1 style={{color: "white",  fontSize: "calc( (100vw - 480px)/(1280 - 480) * (32 - 16) + 16px)", margin: 10}}>
                     Full cycle of creation, scaling and delivery of secure software for the customer.
                 </h1>}
 

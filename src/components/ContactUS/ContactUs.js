@@ -2,7 +2,8 @@ import React from "react";
 import PopupWithInputFields from "./PopupWithInputFields";
 
 
-export default function ContactUs (){
+export default function ContactUs (props){
+    let lang = props.lang
     const [open, setOpen] = React.useState(false);
     const [show, setShow] = React.useState(false);
 
@@ -22,13 +23,21 @@ export default function ContactUs (){
     return(
 <>
     <hr style={{marginTop: 50, opacity: 0.5}}/>
-    <div style={{height: 300, paddingTop: 20}}>
-        <h1 style={{textAlign: "center", color: "white"}}>
-            ПРИВЕТ. КАК МЫ МОЖЕМ ТЕБЕ ПОМОЧЬ?
-        </h1>
-        <h2 style={{textAlign: "center", color: "white"}}>
-            СВЯЖИСЬ С НАМИ. МЫ БУДЕМ РАДЫ ВЫСЛУШАТЬ.
-        </h2>
+    <div style={{height: 220, paddingTop: 20}}>
+        <div style={{textAlign: "center",
+            color: "white",
+            fontSize: "calc( (100vw - 480px)/(1280 - 480) * (24 - 16) + 16px)",}} >
+            {lang ? <>ПРИВЕТ. ЕСТЬ ВОПРОСЫ?</> : <>HELLO. HAVE QUESTIONS?</>}
+
+        </div>
+        <div style={{textAlign: "center",
+            paddingTop: 20,
+            paddingBottom: 40,
+            color: "white",
+            fontSize: "calc( (100vw - 480px)/(1280 - 480) * (20 - 14) + 14px)",}}>
+            {lang ? <>СВЯЖИСЬ С НАМИ. МЫ БУДЕМ РАДЫ ОТВЕТИТЬ.</> : <>CONNECT WITH US. WE WILL BE HAPPY TO ANSWER.</>}
+
+        </div>
         <button onClick={()=> handleClickOpen()} style={{width: 200,
             height: 45,
             color: "white",
@@ -40,7 +49,8 @@ export default function ContactUs (){
             alignItems: "center",
             display: "block",
             }}>
-            СВЯЗАТЬСЯ
+            {lang ? <>СВЯЗАТЬСЯ</> : <>CONTACT US</>}
+
         </button>
     </div>
     <PopupWithInputFields handleClose={handleClose} handleClickOpen={handleClickOpen} open={open}  />

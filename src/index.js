@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
 // import { RenderTexture, OrbitControls, ContactShadows } from '@react-three/drei'
 // import { Canvas, useFrame, createPortal } from '@react-three/fiber'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

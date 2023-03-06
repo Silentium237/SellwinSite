@@ -56,66 +56,18 @@ import OurProject from "./components/OurProject/OurProject";
 
 
 function App() {
-    const [showCard1, setShowCard1] = React.useState(true)
-    const [showCard2, setShowCard2] = React.useState(true)
-    const [showCard3, setShowCard3] = React.useState(true)
-    const [isHover1, setIsHover1] = React.useState(false);
-    const [isHover2, setIsHover2] = React.useState(false);
-    const [isHover3, setIsHover3] = React.useState(false);
-    const [isHover4, setIsHover4] = React.useState(false);
-    const [isHover5, setIsHover5] = React.useState(false);
 
 
-    const show1 = () => {
-        setShowCard1(false)
-    }
-    const show11 = () => {
-        setShowCard1(true)
-    }
-    const show2 = () => {
-        setShowCard2(false)
-    }
-    const show22 = () => {
-        setShowCard2(true)
-    }
-    const show3 = () => {
-        setShowCard3(false)
-    }
-    const show33 = () => {
-        setShowCard3(true)
+    const [lang, setLang] = React.useState(true)
+
+
+    const changeLanguage = (item) => {
+        setLang(!item)
     }
 
 
-    const handleMouseEnter1 = () => {
-        setIsHover1(true);
-    };
-    const handleMouseLeave1 = () => {
-        setIsHover1(false);
-    };
-    const handleMouseEnter2 = () => {
-        setIsHover2(true);
-    };
-    const handleMouseLeave2 = () => {
-        setIsHover2(false);
-    };
-    const handleMouseEnter3 = () => {
-        setIsHover3(true);
-    };
-    const handleMouseLeave3 = () => {
-        setIsHover3(false);
-    };
-    const handleMouseEnter4 = () => {
-        setIsHover4(true);
-    };
-    const handleMouseLeave4 = () => {
-        setIsHover4(false);
-    };
-    const handleMouseEnter5 = () => {
-        setIsHover5(true);
-    };
-    const handleMouseLeave5 = () => {
-        setIsHover5(false);
-    };
+
+
 
 
 
@@ -123,36 +75,20 @@ function App() {
     let Width = window.innerWidth
 
   return (
-    <div style={{background: '#1f2e4b',fontFamily: "Andale Mono, monospace"}} >
+    <div style={{background: '#1f2e4b',fontFamily: "'Space Grotesk', sans-serif"}} >
 
 
-    <DrawerAppBar/>
+    <DrawerAppBar lang={lang} changeLanguage={changeLanguage} />
 
 
-            <AboutUs  />
+            <AboutUs lang={lang}   />
 
-        {Width > 1024 ?   <CardShow handleMouseEnter1={handleMouseEnter1}
-                                    handleMouseEnter2={handleMouseEnter2}
-                                    handleMouseLeave2={handleMouseLeave2}
-                                    handleMouseLeave1={handleMouseLeave1}
-                                    isHover1={isHover1}
-                                    isHover2={isHover2} /> :    <CardShowMobile/>}
+        {Width > 1024 ?   <CardShow lang={lang}/> :    <CardShowMobile lang={lang}/>}
 
 
-
-
-
-
-
-
-
-        <ContactUs/>
-
-
-        <OurResults/>
-        <OurProject/>
-
-
+        <ContactUs lang={lang}/>
+        <OurResults lang={lang}/>
+        <OurProject lang={lang}/>
 
 
         <hr style={{marginTop: 20, opacity: 0.5}}/>

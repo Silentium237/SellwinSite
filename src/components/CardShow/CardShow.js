@@ -7,89 +7,148 @@ import engineer from "../../Engineer.svg";
 import design from "../../design.svg";
 
 export default function CardShow (props){
-    let handleMouseEnter1=props.handleMouseEnter1
-    let handleMouseLeave1=props.handleMouseLeave1
-    let handleMouseEnter2=props.handleMouseEnter2
-    let handleMouseLeave2=props.handleMouseLeave2
-    let isHover1=props.isHover1
-    let isHover2=props.isHover2
+    let lang = props.lang
+    const [isHover1, setIsHover1] = React.useState(false);
+    const [isHover2, setIsHover2] = React.useState(false);
+    const [isHover3, setIsHover3] = React.useState(false);
+    const [isHover4, setIsHover4] = React.useState(false);
+    const [isHover5, setIsHover5] = React.useState(false);
+
+    const handleMouseEnter1 = () => {
+        setIsHover1(true);
+    };
+    const handleMouseLeave1 = () => {
+        setIsHover1(false);
+    };
+    const handleMouseEnter2 = () => {
+        setIsHover2(true);
+    };
+    const handleMouseLeave2 = () => {
+        setIsHover2(false);
+    };
+    const handleMouseEnter3 = () => {
+        setIsHover3(true);
+    };
+    const handleMouseLeave3 = () => {
+        setIsHover3(false);
+    };
+    const handleMouseEnter4 = () => {
+        setIsHover4(true);
+    };
+    const handleMouseLeave4 = () => {
+        setIsHover4(false);
+    };
+    const handleMouseEnter5 = () => {
+        setIsHover5(true);
+    };
+    const handleMouseLeave5 = () => {
+        setIsHover5(false);
+    };
+
+    const arrInfo = [
+        {
+            title: "КОНСУЛЬТАЦИЯ",
+            titleEng: "CONSULT",
+            img: consult,
+            text: "Мы используем мощь нашего интегрированного" +
+                " консалтингового таланта, а также наш опыт работы" +
+                " с данными, чтобы определить, где мы можем принести" +
+                " пользу и удовлетворить ваши уникальные потребности.",
+            textEng: "We harness the power of our integrated consulting" +
+                " talent, alongside our data expertise, to work out where" +
+                " we can provide value and address your unique needs",
+            hover: isHover1,
+            handleMouseEnter: handleMouseEnter1,
+            handleMouseLeave: handleMouseLeave1
+
+        },
+        {
+            title: "ДЕЙСТВИЕ",
+            titleEng: "OPERATE",
+            img: operate,
+            text: "Мы внедряем коммерческие" +
+                " программные продукты для предоставления интегрированных" +
+                " и интеллектуальных услуг нового поколения.",
+            textEng: "We are implementing commercial software products" +
+                " to deliver next-generation integrated and intelligent" +
+                " services.",
+            hover: isHover2,
+            handleMouseEnter: handleMouseEnter2,
+            handleMouseLeave: handleMouseLeave2
+        },
+        {
+            title: "ОПТИМИЗАЦИЯ",
+            titleEng: "OPTIMIZE",
+            img: optimize,
+            text: "Мы превращаем оптимизацию процессов в платформу" +
+                " для инноваций за счет принятия решений на основе" +
+                " данных и ориентированного на продукт подхода.",
+            textEng: "We turn process optimization into platforms" +
+                " for innovation through data-driven decisions," +
+                " using a product-centric approach.",
+            hover: isHover3,
+            handleMouseEnter: handleMouseEnter3,
+            handleMouseLeave: handleMouseLeave3
+        },
+        {
+            title: "ИНЖЕНЕРИЯ",
+            titleEng: "ENGINEER",
+            img: engineer,
+            text: "Мы осуществляем трансформацию технологий. " +
+                "Вы получаете многоканальные программные платформы," +
+                " разработанные с расчетом на будущее и масштабируемые.",
+            textEng: "We make technology transformation happen. " +
+                "You get omnichannel software platforms architected" +
+                " for the future and built to scale.",
+            hover: isHover4,
+            handleMouseEnter: handleMouseEnter4,
+            handleMouseLeave: handleMouseLeave4
+        },
+        {
+            title: "ДИЗАЙН",
+            titleEng: "DESIGN",
+            img: design,
+            text: "Наши талантливые дизайнеры воплотят ваши идеи в жизнь." +
+                " Они знают, как очеловечить технологии и бизнес, чтобы " +
+                "создать содержательный мультимодальный цифровой опыт.",
+            textEng: "Our talented designers bring your ideas to life. " +
+                "They know how to humanize technology and business" +
+                " to create meaningful, multimodal digital experiences.",
+            hover: isHover5,
+            handleMouseEnter: handleMouseEnter5,
+            handleMouseLeave: handleMouseLeave5
+        },
+
+    ]
+
 
     return(
         <Grid container spacing={1}>
+            {arrInfo.map((item, index)=>(
             <Grid item xs={2} md={2.4}>
-                <div style={{border: "1px solid grey", height: 200, backgroundColor: "#162134", color: "white", textAlign: "center"}}>
-                    <img style={{paddingTop: "10%"}} width="100" src={consult}/>
-                    <div style={{fontWeight: "bold", fontSize: 24, }}>
-                        CONSULT
+                    <div key={index} onMouseEnter={item.handleMouseEnter}
+                         onMouseLeave={item.handleMouseLeave}  style={ {border: "1px solid grey",
+                        height: 200,
+                        backgroundColor: !item.hover ? "#162134" : "#2d4370",
+                        color: "white",
+                        textAlign: "center",
+                        transition: "1s",
+                        transform: item.hover ? "rotateY(180deg)" : "rotateY(360deg)" ,
+                    }}>
+                        {!item.hover ? <>
+                            <img style={{paddingTop: "10%"}} width="100" src={item.img}/>
+                            <div style={{fontWeight: "bold",
+                                fontSize: "calc( (100vw - 480px)/(1280 - 480) * (18 - 14) + 14px)", }}>
+                                {lang ? item.title : item.titleEng}
+                            </div>
+                        </>  : null}
+                        {item.hover ? <div style={{transform:  "rotateY(180deg)",
+                            fontSize: "calc( (100vw - 480px)/(1280 - 480) * (14 - 12) + 12px)", }}><h3>{lang ? item.title : item.titleEng}</h3>
+                            {lang ? item.text : item.textEng}
+                        </div> : null}
                     </div>
-                </div>
             </Grid>
-            <Grid item xs={2} md={2.4}>
-                <div style={{border: "1px solid grey", height: 200, backgroundColor: "#162134", color: "white", textAlign: "center"}} >
-                    <img style={{paddingTop: "10%"}} width="100" src={operate}/>
-                    <div style={{fontWeight: "bold", fontSize: 24, }}>
-                        OPERATE
-                    </div>
-                </div>
-            </Grid>
-            <Grid item xs={2} md={2.4}>
-                <div style={{border: "1px solid grey", height: 200, backgroundColor: "#162134", color: "white", textAlign: "center"}}>
-                    <img  style={{paddingTop: "10%"}} width="100" src={optimize}/>
-                    <div style={{fontWeight: "bold", fontSize: 24, }}>
-                        OPTIMIZE
-                    </div>
-                </div>
-            </Grid>
-            <Grid item xs={2} md={2.4}>
-                <div onMouseEnter={handleMouseEnter1}
-                     onMouseLeave={handleMouseLeave1}  style={ {border: "1px solid grey",
-                    height: 200,
-                    backgroundColor: !isHover1 ? "#162134" : "#2d4370",
-                    color: "white",
-                    textAlign: "center",
-                    transition: "1s",
-                    transform: isHover1 ? "rotateY(180deg)" : "rotateY(360deg)" ,
-                }}>
-                    {!isHover1 ? <>
-                        <img style={{paddingTop: "10%"}} width="100" src={engineer}/>
-                        <div style={{fontWeight: "bold", fontSize: 24, }}>
-                            ENGINEER
-                        </div>
-                    </>  : null}
-                    {isHover1 ? <div style={{transform:  "rotateY(180deg)"}}><h3>Управление</h3>
-                        Управление текущими бизнес-процессами внутри
-                        деятельности компании, бизнес-мониторинг. Только
-                        лучшие инновационные и специализированные решения.
-                    </div> : null}
-                </div>
-
-
-            </Grid>
-            <Grid item xs={2} md={2.4}>
-                <div onMouseEnter={handleMouseEnter2}
-                     onMouseLeave={handleMouseLeave2}  style={ {border: "1px solid grey",
-                    height: 200,
-                    backgroundColor: !isHover2 ? "#162134" : "#2d4370",
-                    color: "white",
-                    textAlign: "center",
-                    transition: "1s",
-                    transform: isHover2 ? "rotateY(180deg)" : "rotateY(360deg)" ,
-                }}>
-                    {!isHover2 ? <>
-                        <img style={{paddingTop: "10%"}} width="100" src={design}/>
-                        <div style={{fontWeight: "bold", fontSize: 24, }}>
-                            DESIGN
-                        </div>
-                    </>  : null}
-                    {isHover2 ? <div style={{transform:  "rotateY(180deg)"}}><h3>Дизайн</h3>
-                        Опытная команда дизайнеров создаст для Вас привлекательный макет проекта,
-                        который будет учитывать все Ваши пожелания и будет соответствовать всем современным тенденциям.
-                    </div> : null}
-                </div>
-
-
-            </Grid>
-
+            ))}
         </Grid>
     )
 }
