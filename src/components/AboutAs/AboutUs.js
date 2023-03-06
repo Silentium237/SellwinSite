@@ -63,7 +63,7 @@ export default function  AboutUs (props) {
                 <hr style={{opacity: 0.5}} />
                 <div style={{textAlign: "center",
                     fontSize: "calc( (100vw - 480px)/(1280 - 480) * (24 - 16) + 16px)",
-                    fontWeight: "bold",
+                    // fontWeight: "bold",
                     padding: 10,
                     color: "white" ,
                     paddingTop: "calc( (100vw - 480px)/(1280 - 480) * (200 - 160) + 160px)"}}>

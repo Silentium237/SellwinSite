@@ -131,7 +131,7 @@ function DrawerAppBar(props) {
                                     transition: "background-position 275ms ease",
                                     margin: "auto",
                                     padding: Width > 600 ? 20 : 10,
-                                    fontWeight: "bold"
+                                    // fontWeight: "bold"
 
                                 }}
                                 onMouseEnter={() => item.handleMouseEnter(item.name)}
@@ -164,7 +164,7 @@ function DrawerAppBar(props) {
 
                 </Box>
                 <Toolbar/>
-                <h1 style={{
+                <div style={{
                     fontSize: "calc( (100vw - 480px)/(1280 - 480) * (60 - 24) + 24px)", color: "white",margin: 10
                 }}>
                     {lang ? <>
@@ -174,15 +174,15 @@ function DrawerAppBar(props) {
                     </>}
 
 
-                </h1>
+                </div>
                 <hr/>
 
 
-                {lang ? <h1 style={{color: "white",  fontSize: "calc( (100vw - 480px)/(1280 - 480) * (32 - 16) + 16px)", margin: 10}}>
+                {lang ? <div style={{color: "white",  fontSize: "calc( (100vw - 480px)/(1280 - 480) * (32 - 16) + 16px)", margin: 10}}>
                     Полный цикл создания, масштабирования и поставки защищенного программного обеспечения для заказчика.
-                </h1> : <h1 style={{color: "white",  fontSize: "calc( (100vw - 480px)/(1280 - 480) * (32 - 16) + 16px)", margin: 10}}>
+                </div> : <div style={{color: "white",  fontSize: "calc( (100vw - 480px)/(1280 - 480) * (32 - 16) + 16px)", margin: 10}}>
                     Full cycle of creation, scaling and delivery of secure software for the customer.
-                </h1>}
+                </div>}
 
 
                 <hr/>

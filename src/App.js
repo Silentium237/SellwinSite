@@ -91,11 +91,9 @@ function App() {
         <OurProject lang={lang}/>
 
 
-        <hr style={{marginTop: 20, opacity: 0.5}}/>
 
-        <div style={{textAlign: "center", fontSize: 24, fontWeight: "bold", padding: 10 , paddingTop: 15, color: "white"}}>DELIVERY TEAMS</div>
 
-        <SellwinCompany/>
+        <SellwinCompany lang={lang}/>
 
 
         <div style={{paddingTop: 50}}>

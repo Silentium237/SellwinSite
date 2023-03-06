@@ -4,7 +4,8 @@ import beautyHouse from "./beautyhouse.png"
 import b2b from "./b2b.png"
 import db from "./db.png"
 
-export default function OurProject(){
+export default function OurProject(props){
+    let lang = props.lang
     const [project, setProject] = React.useState(false);
 
     const handleSetProject = () => {
@@ -52,7 +53,7 @@ export default function OurProject(){
                     position: "center",
                     justifyContent: "center",
                     alignItems: "center",
-                    display: "block",}} > НАШИ ПРОЕКТЫ {project ? <span style={{width: 10}}>&#8595;</span> : <span>&#8593;</span> }	 </button></div>
+                    display: "block",}} > {lang ? <>НАШИ ПРОЕКТЫ</>: <>OUR PROJECTS</>}  {project ? <span style={{width: 10}}>&#8595;</span> : <span>&#8593;</span> }	 </button></div>
 
             {project ?
                 <div style={{alignItems: "center", display: "grid", justifyContent: "center", margin: "auto", fontFamily: "Andale Mono, monospace"}}>

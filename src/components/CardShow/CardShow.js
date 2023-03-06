@@ -137,14 +137,16 @@ export default function CardShow (props){
                     }}>
                         {!item.hover ? <>
                             <img style={{paddingTop: "10%"}} width="100" src={item.img}/>
-                            <div style={{fontWeight: "bold",
+                            <div style={{
+                                // fontWeight: "bold",
                                 fontSize: "calc( (100vw - 480px)/(1280 - 480) * (18 - 14) + 14px)", }}>
                                 {lang ? item.title : item.titleEng}
                             </div>
                         </>  : null}
                         {item.hover ? <div style={{transform:  "rotateY(180deg)",
-                            fontSize: "calc( (100vw - 480px)/(1280 - 480) * (14 - 12) + 12px)", }}><h3>{lang ? item.title : item.titleEng}</h3>
-                            {lang ? item.text : item.textEng}
+                            fontSize: "calc( (100vw - 480px)/(1280 - 480) * (14 - 12) + 12px)", paddingTop: 20 }}>
+                            {lang ? <div>{item.title}</div> : <div>{item.titleEng}</div>}
+                            {lang ? <div>{item.text}</div> : <div>{item.textEng}</div>}
                         </div> : null}
                     </div>
             </Grid>
